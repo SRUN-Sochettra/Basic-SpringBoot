@@ -36,19 +36,9 @@ public interface EmployeeRepo {
     @Insert("""
     INSERT INTO employees(first_name, last_name, email, salary, department)
     VALUES (#{firstName}, #{lastName}, #{email}, #{salary}, #{department})
-    RETURNING employee_id, first_name, last_name, email, salary, department, created_at
 """)
-    @Results({
-            @Result(property = "employeeId", column = "employee_id"),
-            @Result(property = "firstName", column = "first_name"),
-            @Result(property = "lastName", column = "last_name"),
-            @Result(property = "email", column = "email"),
-            @Result(property = "salary", column = "salary"),
-            @Result(property = "department", column = "department"),
-            @Result(property = "createdAt", column = "created_at")
-    })
     @Options(useGeneratedKeys = true, keyProperty = "employeeId", keyColumn = "employee_id")
-    Employee addEmployee(Employee employee);
+    int insertEmployee(Employee employee);
 
     @Update("""
         UPDATE employees

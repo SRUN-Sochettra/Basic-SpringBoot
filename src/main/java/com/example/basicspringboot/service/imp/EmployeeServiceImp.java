@@ -28,11 +28,10 @@ public class EmployeeServiceImp implements EmployeeService {
     public Employee getEmployeeById(Long employeeId) {
         return employeeRepo.getEmployeeById(employeeId);
     }
-
     @Override
     public Employee addEmployee(Employee employee) {
-        employeeRepo.addEmployee(employee);
-        return employee;
+        employeeRepo.insertEmployee(employee);
+        return employeeRepo.getEmployeeById(employee.getEmployeeId());
     }
 
     @Override
