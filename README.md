@@ -1,4 +1,5 @@
 # Basic-SpringBoot
+## Backend: Basic-SpringBoot + Frontend: test-next
 
 ## Tech Stack
 * **Language:** Java 17
